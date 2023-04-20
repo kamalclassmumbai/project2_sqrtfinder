@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title> Square Root Finder App </title>
+		<style>
+			* { font-size:40px; font-family: Simsun; }
+		</style>
+		<script>
+			function compute()
+			{
+				event.preventDefault();
+				let num = document.getElementById("num");
+				let ans = document.getElementById("ans");
+		
+				if (num.value == "")
+				{
+					alert("number is empty");
+					num.focus();
+					ans.innerHTML = "";
+					return;
+				}
+
+				let n = parseFloat(num.value);
+
+				if (n < 0)
+				{
+					alert("-ve numbers not supported");
+					num.focus();
+					ans.innerHTML = "";
+					num.value="";
+					return;
+				}
+
+				let r = n ** 0.5;
+				let msg = "square root = " + r.toFixed(2);
+				ans.innerHTML = msg;
+			}
+		</script>
+	</head>
+	<body>
+		<center>
+			<h1> Square Root Finder </h1>
+			<form onsubmit="compute()">
+			<input type="number" step=".01" placeholder="enter number" id="num" />
+			<br/><br/>
+			<input type="submit" value="Find Square Root" />
+			</form>
+			<h1 id="ans"> </h1>	
+		</center>
+	</body>
+</html>
+
+
+
